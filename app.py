@@ -24,10 +24,10 @@ def niz():
 
 @app.route("/primer-json")
 def primerJson():
-    data = (
-        "message": "This is a JSON reswponse",
+    data = {
+        "message": "This is a JSON response",
         "status": "success"
-    )
+    }
     return (data)
 
 @app.route("/primer-html")
@@ -36,7 +36,7 @@ def primerHTML():
 <html lang="en">
 <head>
     <meta charset="UTF 8">
-    <meta name="viewport" content="width=device-widh, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible">
     """
 
