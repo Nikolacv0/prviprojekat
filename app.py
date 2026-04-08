@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Zdravo programeri"
+    return render template
 
 @app.route("/primer-string")
 def string():
