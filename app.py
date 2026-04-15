@@ -7,15 +7,21 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render template
+    nazivSpiska = "Spisak restorana"
+    spisakRestorana = ["Pastica, "Pica tim, "HasHub", "Sahara"]
+    return render_template("index.html", naziv=nazivSpiska, spisak=spisakRestorana)
 
-@app.route("/primer-string")
-def string():
-   return "Neki ne preterano dugacak tekst"
+@app.route("/restorani")
+def restorani():
+    nazivRestorana = "Spisak restorana"
+    spisakRestorani = ["Pastica, "Pica tim, "HasHub", "Sahara"]
+    return render_template("restorani.html", naziv=nazivRestorana, spisak=spisakRestorana)
 
-@app.route("/primer-broj")
-def broj():
-   return 265
+@app.route("/restorani/1")
+def meni():
+    nazivMeni = "Meni restorana"
+    spisakMeni = ["Pastica, "Pica tim, "HasHub", "Sahara"]
+    return render_template("meni.html, naziv=nazivMeni, spisak=spisakMeni)
 
 @app.route("/primer-niz")
 def niz():
