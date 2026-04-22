@@ -8,19 +8,13 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     nazivSpiska = "Spisak restorana"
-    spisakRestorana = ["Pastica, "Pica tim, "HasHub", "Sahara"]
+    spisakRestorana = ["Pastica", "Pica tim, "HasHub", "Sahara"]
     return render_template("index.html", naziv=nazivSpiska, spisak=spisakRestorana)
-
-@app.route("/restorani")
-def restorani():
-    nazivRestorana = "Spisak restorana"
-    spisakRestorani = ["Pastica, "Picca tim, "HasHub", "Sahara"]
-    return render_template("index.html", naziv=nazivRestorana, spisak=spisakRestorana)
 
 @app.route("/restorani/1")
 def meni():
-    nazivMeni = "Meni restorana"
-    spisakMeni = ["Pastica, "Pica tim, "HasHub", "Sahara"]
+    nazivMeni = "Meni Promenada"
+    spisakMeni = ["Sendvici", "Burgeri", "Torte", "Paste"]
     return render_template("meni.html, naziv=nazivMeni, spisak=spisakMeni)
 
 @app.route("/primer-niz")
