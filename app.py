@@ -15,7 +15,7 @@ def index():
 def meni():
     nazivMeni = "Meni Promenada"
     spisakMeni = ["Sendvici", "Burgeri", "Torte", "Paste"]
-    return render_template("meni.html, naziv=nazivMeni, spisak=spisakMeni)
+    return render_template("meni.html", naziv=nazivMeni, spisak=spisakMeni)
 
 @app.route("/primer-niz")
 def niz():
