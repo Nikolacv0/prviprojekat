@@ -14,8 +14,8 @@ def index():
 @app.route("/restorani")
 def restorani():
     nazivRestorana = "Spisak restorana"
-    spisakRestorani = ["Pastica, "Pica tim, "HasHub", "Sahara"]
-    return render_template("restorani.html", naziv=nazivRestorana, spisak=spisakRestorana)
+    spisakRestorani = ["Pastica, "Picca tim, "HasHub", "Sahara"]
+    return render_template("index.html", naziv=nazivRestorana, spisak=spisakRestorana)
 
 @app.route("/restorani/1")
 def meni():
