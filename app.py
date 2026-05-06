@@ -8,27 +8,28 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     nazivSpiska = "Spisak restorana"
-    spisakRestorana = ["Pastica", "Pica tim", "HasHub", "Sahara"]
-    return render_template("index.html", naziv=nazivSpiska, spisak=spisakRestorana)
-
-@app.route("/restorani/1")
-def meni():
-    nazivMeni = "Meni Promenada"
-    spisakMeni = ["Sendvici", "Burgeri", "Torte", "Paste"]
-    return render_template("meni.html", naziv=nazivMeni, spisak=spisakMeni)
-
-@app.route("/")
-def index():
-    #restorani= ["Pastica", "Pica Tim", "HasHub", "Sahara", "ABC", "LeLe", "Oskar", "Cap Cap"]
+    #spisakRestorana = ["Pastica", "Pica tim", "HasHub", "Sahara"]
     con = sqlite3.connect("dostavaHrane.db")
 
-    cur=con.cursor()
-    cur.execute("SELECT naziv FROM restorani LIMIT 10")
+    cur = con.cursor()
+    cur.execute("SELECT id,naziv FROM restorani LIMIT 10")
 
-    restorani=cur.fetchall()
-    return render_template("index.html",
-                           naslov="Spisak restorana",
-                           spisak=restorani)
+    spisakRestorana=cur.fetchall()
+   
+    return render_template("index.html", naziv=nazivSpiska, spisak=spisakRestorana)
+
+@app.route("/restoran/<id_rest>")
+def meni():
+    #nazivMeni = "Meni Promenada"
+    #spisakMeni = ["Sendvici", "Burgeri", "Torte", "Paste"]
+    con = sqlite3.connect("dostavaHrane.db")
+
+    cur = con.cursor()
+    query = f"SELECT naziv FROM meni where id_restorana == {id_rest}"
+    cur.execute(query)
+
+    menirestorana = cur.fetchall()
+    return render_template("meni.html", naziv=nazivMeni, spisak=spisakMeni)
 
 @app.route("/primer-niz")
 def niz():
