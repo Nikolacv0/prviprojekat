@@ -17,6 +17,19 @@ def meni():
     spisakMeni = ["Sendvici", "Burgeri", "Torte", "Paste"]
     return render_template("meni.html", naziv=nazivMeni, spisak=spisakMeni)
 
+@app.route("/")
+def index():
+    #restorani= ["Pastica", "Pica Tim", "HasHub", "Sahara", "ABC", "LeLe", "Oskar", "Cap Cap"]
+    con = sqlite3.connect("dostavaHrane.db")
+
+    cur=con.cursor()
+    cur.execute("SELECT naziv FROM restorani LIMIT 10")
+
+    restorani=cur.fetchall()
+    return render_template("index.html",
+                           naslov="Spisak restorana",
+                           spisak=restorani)
+
 @app.route("/primer-niz")
 def niz():
     nekiNiz = [1,2,3,4,5]
